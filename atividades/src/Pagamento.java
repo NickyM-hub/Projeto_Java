@@ -62,7 +62,7 @@ class Caminhoneiro extends Entregador implements Pagamento {
 
     @Override
     double calcularTaxas() {
-        return getValorEntrega() * 0.15; // 15%
+        return getValorEntrega() * 0.15;
     }
 
     @Override
