@@ -2,6 +2,8 @@ interface Pagamento {
     void processarPagamento(double valor);
 }
 
+
+
 abstract class Entregador {
     private String nome;
     private double valorEntrega;
@@ -30,6 +32,8 @@ abstract class Entregador {
     }
 }
 
+
+
 class Motoboy extends Entregador implements Pagamento {
 
     public Motoboy(String nome, double valorEntrega) {
@@ -47,6 +51,8 @@ class Motoboy extends Entregador implements Pagamento {
         System.out.println("Pagamento do Motoboy: " + (getValorEntrega() - calcularTaxas()));
     }
 }
+
+
 
 class Caminhoneiro extends Entregador implements Pagamento {
 
