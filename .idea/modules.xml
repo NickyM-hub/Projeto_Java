@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Projeto_1.iml" filepath="$PROJECT_DIR$/.idea/Projeto_1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/atividades/atividades.iml" filepath="$PROJECT_DIR$/atividades/atividades.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sistema de Banco/Sistema de Banco.iml" filepath="$PROJECT_DIR$/Sistema de Banco/Sistema de Banco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atividades/Sistema de Entregas de Compras Online.iml" filepath="$PROJECT_DIR$/atividades/Sistema de Entregas de Compras Online.iml" />
     </modules>
   </component>
 </project>
