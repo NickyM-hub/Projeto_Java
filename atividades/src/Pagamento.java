@@ -1,18 +1,18 @@
 interface Pagamento {
-
-    public void processarPagamento(double valor);
+    void processarPagamento(double valor);
 }
 
 abstract class Entregador {
     private String nome;
     private double valorEntrega;
 
-    public String getNome() {
-        return nome;
+    public Entregador(String nome, double valorEntrega) {
+        this.nome = nome;
+        this.valorEntrega = valorEntrega;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getNome() {
+        return nome;
     }
 
     public double getValorEntrega() {
@@ -23,14 +23,11 @@ abstract class Entregador {
         this.valorEntrega = valorEntrega;
     }
 
-    public Entregador(String nome, double valorEntrega) {
-        this.nome = nome;
-        this.valorEntrega = valorEntrega;
-    }
-
     abstract double calcularTaxas();
 
-    abstract void mostrarDados();
+    public void mostrarDados() {
+        System.out.println("Nome: " + nome + " Valor da entrega: " + valorEntrega);
+    }
 }
 
 class Motoboy extends Entregador implements Pagamento {
@@ -39,28 +36,32 @@ class Motoboy extends Entregador implements Pagamento {
         super(nome, valorEntrega);
     }
 
-
     @Override
     double calcularTaxas() {
-        if (getValorEntrega() > 0) {
-            return getValorEntrega() * 0.05;
-        }
-        else {
-            return getValorEntrega() * 0;
-        }
+        return getValorEntrega() * 0.05;
     }
 
     @Override
     public void processarPagamento(double valor) {
-        calcularTaxas(valor);
-        System.out.println("Pagamento processado no valor de: " + getValorEntrega());
+        setValorEntrega(valor);
+        System.out.println("Pagamento do Motoboy: " + (getValorEntrega() - calcularTaxas()));
     }
+}
 
-    private void calcularTaxas(double valor) {
+class Caminhoneiro extends Entregador implements Pagamento {
+
+    public Caminhoneiro(String nome, double valorEntrega) {
+        super(nome, valorEntrega);
     }
 
     @Override
-    void mostrarDados() {
-        System.out.println("o nome do Motoboy é: " + getNome() + "e o valor da entrega é: " + getValorEntrega());
+    double calcularTaxas() {
+        return getValorEntrega() * 0.15; // 15%
+    }
+
+    @Override
+    public void processarPagamento(double valor) {
+        setValorEntrega(valor);
+        System.out.println("Pagamento do Caminhoneiro: " + (getValorEntrega() - calcularTaxas()));
     }
 }
